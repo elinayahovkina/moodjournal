@@ -1,7 +1,6 @@
 services:
   db:
     image: postgres:16
-    container_name: journal-db
     environment:
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
@@ -13,7 +12,6 @@ services:
     build:
       context: ./backend
       dockerfile: Dockerfile
-    container_name: journal-backend
     depends_on: 
       - db
     environment:
