@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Journal</title>
+  </head>
+  <body>
+    <div id="app">
+      <h1>Mood Journal</h1>
+
+      <form id="journal-form">
+        <label for="mood-input">How are you feeling?</label>
+        <textarea
+          id="mood-input"
+          name="mood"
+          rows="6"
+          placeholder="Write about how you feel..."
+        ></textarea>
+
+        <button type="submit" id="submit-btn">Send</button>
+      </form>
+
+      <section id="response-area">
+        <h2>Latest AI Response</h2>
+        <p id="ai-response-text">Your AI response will appear here.</p>
+      </section>
+
+      <section id="history">
+        <h2>Past Entries</h2>
+        <div id="history-list"></div>
+      </section>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

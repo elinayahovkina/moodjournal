@@ -1,0 +1,24 @@
+services:
+  db:
+    image: postgres:16
+    container_name: journal-db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: journal_db
+    ports:
+      - "5433:5432"
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: journal-backend
+    depends_on: 
+      - db
+    environment:
+      DATABASE_URL: postgresql://postgres:postgres@db:5432/journal_db?schema=public
+      GEMINI_API_KEY: AIzaSyAvItsUqLPhTr3Dpo_nK8LUK16gTZHZiNE
+      PORT: 3000
+    ports:
+      - "3000:3000"
