@@ -8,6 +8,7 @@ RUN npm ci
 
 COPY src ./src
 COPY prisma ./prisma
+COPY prisma.config.ts ./ 
 
 RUN npx prisma generate
 
